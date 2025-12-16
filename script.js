@@ -114,7 +114,7 @@
     // Share button
     document.getElementById("shareBtn").addEventListener("click", function() {
       const userName = document.getElementById("resultMessage").innerText.split(",")[0];
-      const shareText = `${userName} just received Salami from Aunik & Mahdi! 🎁💰`;
+      const shareText = `${userName} just received Salami from Aunik! 🎁💰`;
       
       if (navigator.share) {
         navigator.share({

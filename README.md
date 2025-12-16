@@ -1,4 +1,4 @@
-# 🎁 Salami from Aunik & Mahdi
+# 🎁 Salami from Aunik(সালামি নেন)
 
 A fun, interactive Bengali web application that lets users "receive" virtual Salami (gift money) with random Bangladeshi currency notes. Perfect for Eid celebrations or special occasions!
 
