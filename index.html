@@ -1,0 +1,161 @@
+<!DOCTYPE html>  
+<html lang="bn">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Salami from Aunik</title>  
+  <style>  
+    /* RESET STYLES */  
+    * {  
+      margin: 0;  
+      padding: 0;  
+      box-sizing: border-box;  
+      font-family: 'Poppins', sans-serif;  
+    }  
+
+    /* BODY STYLES */  
+    body {  
+      background: url('https://i.postimg.cc/PrkjByDm/1000052691.jpg') no-repeat center center/cover;  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+      height: 100vh;  
+      text-align: center;  
+      color: white;  
+    }  
+
+    /* CONTAINER */  
+    .container {  
+      background: rgba(0, 0, 0, 0.6);  
+      padding: 25px;  
+      border-radius: 15px;  
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);  
+      max-width: 400px;  
+      width: 90%;  
+    }  
+
+    /* INPUT FIELD */  
+    input {  
+      width: 100%;  
+      padding: 10px;  
+      margin-top: 10px;  
+      border: none;  
+      border-radius: 5px;  
+      text-align: center;  
+      font-size: 16px;  
+    }  
+
+    /* BUTTON */  
+    .btn {  
+      display: inline-block;  
+      margin-top: 15px;  
+      padding: 12px 20px;  
+      font-size: 18px;  
+      font-weight: bold;  
+      color: white;  
+      background: #00b894;  
+      border: none;  
+      border-radius: 8px;  
+      cursor: pointer;  
+      transition: 0.3s ease;  
+    }  
+
+    .btn:hover {  
+      background: #009f7f;  
+    }  
+
+    /* BILL IMAGE */  
+    .bill-image {  
+      width: 100%;  
+      max-width: 220px;  
+      margin-top: 15px;  
+      border-radius: 10px;  
+      box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);  
+    }  
+
+    /* HIDING RESULT INITIALLY */  
+    .hidden {  
+      display: none;  
+    }  
+
+    /* FOOTER */  
+    .footer {  
+      position: absolute;  
+      bottom: 10px;  
+      width: 100%;  
+      text-align: center;  
+      font-size: 14px;  
+      opacity: 0.6;  
+    }  
+
+    /* FOOTER LINK */  
+    .footer a {  
+      color: #00b894;  
+      text-decoration: none;  
+      font-weight: bold;  
+    }  
+
+    .footer a:hover {  
+      text-decoration: underline;  
+    }  
+  </style>  
+</head>  
+<body>  
+
+  <!-- Initial Input Section -->  
+  <div class="container" id="initialContainer">  
+    <h1>আপনি অনীকের / মাহদীর কে?</h1>  
+    <input type="text" id="userName" placeholder="এনে লেখ">  
+    <br>  
+    <button class="btn" id="receiveBtn">Receive Salami</button>  
+  </div>  
+
+  <!-- Result Section (Initially Hidden) -->  
+  <div class="container hidden" id="resultContainer">  
+    <h2 id="resultMessage"></h2>  
+    <img id="billImage" class="bill-image" alt="Bangladeshi Note">  
+  </div>  
+
+  <!-- Footer -->  
+  <div class="footer">  
+    <a href="https://github.com/mehedyk" target="_blank">A @mehedyk</a> product  
+  </div>  
+
+  <script>  
+    document.getElementById("receiveBtn").addEventListener("click", function() {  
+        var userName = document.getElementById("userName").value.trim();  
+
+        if (userName === "") {  
+            alert("আগে নামটা লেখ!");  
+            return;  
+        }  
+
+        // Message Display  
+        var message = userName + ", এই নাও তোমার সালামী!:3";  
+        document.getElementById("resultMessage").innerText = message;  
+
+        // Bill Image Array  
+        var billImages = [  
+            "https://i.postimg.cc/yxZV71CL/60ef0539dd7292-86085694-original.jpg",  
+            "https://i.postimg.cc/c4v38w0z/626c27fbbd8e42-21585521-original.jpg",  
+            "https://i.postimg.cc/j2sXb5fb/62ca85a360eaa8-54197328-original.jpg",  
+            "https://i.postimg.cc/zGSGLGbM/6378960701c077-24377127-original.jpg",  
+            "https://i.postimg.cc/fRhbT9Lm/63fdf6608215d0-47811604-original.jpg",  
+            "https://i.postimg.cc/4d8KYNMZ/64512e545596f1-49423818-original.jpg",  
+            "https://i.postimg.cc/Gm048fMB/64512fd6d9b187-62282441-original-1.jpg",  
+            "https://i.postimg.cc/cJx4fGfJ/645141f718c5e3-53349676-original.jpg",  
+            "https://i.postimg.cc/cCpL3Kcq/64514377647a05-37023358-original.jpg"  
+        ];  
+
+        // Select Random Bill  
+        var randomIndex = Math.floor(Math.random() * billImages.length);  
+        document.getElementById("billImage").src = billImages[randomIndex];  
+
+        // Hide Initial Section & Show Result  
+        document.getElementById("initialContainer").style.display = "none";  
+        document.getElementById("resultContainer").classList.remove("hidden");  
+    });  
+  </script>  
+
+</body>  
+</html>
