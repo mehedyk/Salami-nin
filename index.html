@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>সালামি নেন</title>
+  <title>Salami from Aunik & Mahdi</title>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
 
@@ -17,10 +16,18 @@
     <br>
     <button class="btn" id="receiveBtn">🎉 Receive Salami</button>
     
+    <div class="counter" id="globalCounter">
+      <span class="loading"></span> Loading...
+    </div>
+
     <div class="history hidden" id="historySection">
-      <h3 style="margin-bottom: 10px; font-size: 16px;">📜 Previous Recipients:</h3>
+      <h3 style="margin-bottom: 10px; font-size: 16px;">
+        📜 Recent Recipients<span class="live-indicator"></span>
+      </h3>
       <div id="historyList"></div>
     </div>
+
+    <div id="errorDisplay" class="error hidden"></div>
   </div>
 
   <!-- Result Section (Initially Hidden) -->
@@ -36,8 +43,12 @@
 
   <!-- Footer -->
   <div class="footer">
-    <a href="https://github.com/mehedyk" target="_blank">A @mehedyk product</a> |
+    <a href="https://github.com/mehedyk" target="_blank">A @mehedyk product</a> | Made with ❤️
   </div>
+
+  <!-- Supabase JS Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
