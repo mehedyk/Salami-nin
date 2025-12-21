@@ -1,0 +1,26 @@
+{
+  "name": "salami-from-aunik",
+  "version": "2.0.1",
+  "description": "Virtual Salami gift app with secure Supabase integration",
+  "main": "index.html",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "salami",
+    "eid",
+    "bengali",
+    "gift",
+    "supabase"
+  ],
+  "author": "mehedyk",
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}
