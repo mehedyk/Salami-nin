@@ -58,7 +58,7 @@
     function timeAgo(date) {
       const seconds = Math.floor((new Date() - new Date(date)) / 1000);
       
-      if (seconds < 60) return 'এখনই';
+      if (seconds < 60) return 'এখনই নিলো';
       const minutes = Math.floor(seconds / 60);
       if (minutes < 60) return minutes + ' মিনিট আগে';
       const hours = Math.floor(minutes / 60);
@@ -85,11 +85,11 @@
     // Validate name
     function validateName(name) {
       if (!name || name.trim().length < 2) {
-        return { valid: false, error: 'নাম অন্তত ২ অক্ষরের হতে হবে' };
+        return { valid: false, error: 'নাম অন্তত ২ অক্ষর হওয়া লাগব' };
       }
       
       if (name.length > 50) {
-        return { valid: false, error: 'নাম সর্বোচ্চ ৫০ অক্ষরের হতে পারে' };
+        return { valid: false, error: 'নাম সর্বোচ্চ ৫০ অক্ষরের হইতে পারবে' };
       }
 
       return { valid: true };
@@ -131,13 +131,13 @@
       }
 
       document.getElementById('globalCounter').innerHTML = 
-        `🎉 মোট সালামী প্রদান: <strong>${result.count || 0}</strong>`;
+        `এখন পর্যন্ত সালামী নিছে: <strong>${result.count || 0}</strong> জন`;
 
     } catch (error) {
       console.error('Error loading history:', error);
       document.getElementById('globalCounter').innerHTML = 
         '⚠️ ডাটাবেস লোড হচ্ছে না';
-      showError('ইতিহাস লোড করতে ব্যর্থ');
+      showError('History লোড করতে ব্যর্থ');
     }
   }
 
@@ -156,13 +156,13 @@
 
       if (result.count) {
         document.getElementById("counter").innerHTML = 
-          `🌟 আপনি প্রাপক নং ${result.count} 🌟`;
+          `🌟 আপনি ${result.count}-তম সালামী নিলেন🌟`;
       }
 
       return true;
     } catch (error) {
       console.error('Error saving:', error);
-      showError('সংরক্ষণ করতে ব্যর্থ হয়েছে');
+      showError('Save করতে ব্যর্থ হয়েছে');
       return false;
     }
   }
