@@ -3,74 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Salami from Aunik- ঈদ মুবারক</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&family=Poppins:wght@400;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <title>Salami from Aunik - ঈদ মুবারক</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Poppins:wght@400;600;700&family=Kalpurush&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Decorative elements -->
-  <div class="moon-stars">🌙✨</div>
-  <div class="mosque-silhouette"></div>
-
-  <!-- Initial Input Section -->
-  <div class="container" id="initialContainer">
-    <div class="eid-badge">🌙 Taqabbal Allahu Minna Wa Minkum 🌙</div>
-    <h1>আপনি অনীকের / মাহদীর কে? </h1>
-    <p class="subtitle">সালামী পাওয়ার জন্য নাম লিখুন</p>
-    <input type="text" id="userName" placeholder="আপনার নাম লিখুন" maxlength="50">
-    <br>
-    <button class="btn" id="receiveBtn">🎉 সালামী নিন</button>
-    
-    <div class="counter" id="globalCounter">
-      <span class="loading"></span> Loading...
-    </div>
-
-    <div class="history hidden" id="historySection">
-      <h3 style="margin-bottom: 10px; font-size: 16px;">
-        📜 যারা সালামী পাইছে<span class="live-indicator"></span>
-      </h3>
-      <div id="historyList"></div>
-    </div>
-
-    <div id="errorDisplay" class="error hidden"></div>
+  <!-- Floating decorative elements -->
+  <div class="floating-elements">
+    <div class="moon">🌙</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
   </div>
 
-  <!-- Result Section (Initially Hidden) -->
-  <div class="container hidden" id="resultContainer">
-    <div class="eid-badge">🌙 ঈদ মুবারক 🌙</div>
-    <h2 id="resultMessage"></h2>
-    <img id="billImage" class="bill-image" alt="Bangladeshi Note">
-    
-    <!-- Duwa Card -->
-    <div class="duwa-card">
-      <div class="duwa-title">দুয়াঃ </div>
-      <div class="arabic-text" id="duwaArabic"></div>
-      <div class="duwa-text" id="duwaBangla"></div>
+  <div class="main-wrapper">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <h1 class="hero-title">ঈদ মুবারক 🌙✨</h1>
+      <p class="hero-subtitle">Salami from Aunik & Mahdi</p>
+      <p class="hero-tagline">🎁 আপনি অনীকের / মাহদীর কে? 🎁</p>
     </div>
 
-    <div class="counter" id="counter"></div>
-    
-    <div style="margin-top: 20px;">
-      <button class="btn btn-download" id="downloadBtn">📥 ডাউনলোড</button>
-      <button class="btn" id="shareBtn">📤 শেয়ার</button>
-      <button class="btn btn-secondary" id="tryAgainBtn">🔄 RETRY</button>
+    <!-- Initial Input Section -->
+    <div id="initialContainer">
+      <div class="card">
+        <h2 class="card-title">সালামী পাওয়ার জন্য নাম লিখুন</h2>
+        
+        <div class="input-wrapper">
+          <input type="text" id="userName" class="input-field" placeholder="আপনার নাম লিখুন" maxlength="50">
+        </div>
+
+        <button class="btn" id="receiveBtn">
+          <span>🎉 সালামী নিন</span>
+        </button>
+
+        <div class="counter" id="globalCounter">
+          <span class="loading"></span> Loading...
+        </div>
+
+        <div id="errorDisplay" class="error hidden"></div>
+      </div>
+
+      <!-- History Section -->
+      <div class="history hidden" id="historySection">
+        <h3>
+          📜 যারা সালামী পাইছে<span class="live-indicator"></span>
+        </h3>
+        <div id="historyList"></div>
+      </div>
     </div>
 
-    <div class="preview-card">
-      <div class="preview-text">ডাউনলোডে সুন্দর ঈদ কার্ড পাবেন</div>
+    <!-- Result Section -->
+    <div id="resultContainer" class="hidden">
+      <div class="result-card">
+        <h2 class="result-message" id="resultMessage"></h2>
+        
+        <img id="billImage" class="bill-image" alt="Bangladeshi Note">
+        
+        <!-- Duwa Card -->
+        <div class="duwa-card">
+          <div class="duwa-title">🤲 দুয়াঃ</div>
+          <div class="arabic-text" id="duwaArabic"></div>
+          <div class="duwa-text" id="duwaBangla"></div>
+        </div>
+
+        <div class="counter" id="counter"></div>
+
+        <div class="button-group">
+          <button class="btn btn-download" id="downloadBtn">
+            <span>📥 ডাউনলোড করুন</span>
+          </button>
+          <button class="btn btn-secondary" id="shareBtn">
+            <span>📤 শেয়ার করুন</span>
+          </button>
+        </div>
+
+        <button class="btn btn-secondary" id="tryAgainBtn" style="margin-top: 10px;">
+          <span>🔄 আবার চেষ্টা করুন</span>
+        </button>
+
+        <div class="preview-card">
+          <div class="preview-text">💡 ডাউনলোড করলে একটি সুন্দর ঈদ কার্ড পাবেন 🎨</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Footer -->
   <div class="footer">
-    <a>A </a><a href="https://github.com/mehedyk" target="_blank">@mehedyk</a> <a> product</a> |All rights reserved.
+    A <a href="https://github.com/mehedyk" target="_blank">@mehedyk</a> product | All Rights Reserved
   </div>
 
   <!-- Hidden canvas for download -->
   <canvas id="downloadCanvas"></canvas>
-
   <script src="script.js"></script>
-
 </body>
 </html>
