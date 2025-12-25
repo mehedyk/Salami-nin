@@ -166,38 +166,149 @@
     async function generateDownloadCard() {
       const canvas = document.getElementById('downloadCanvas');
       const ctx = canvas.getContext('2d');
-      canvas.width = 800;
-      canvas.height = 1200;
+      canvas.width = 1000;
+      canvas.height = 1400;
 
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, '#006A4E');
-      gradient.addColorStop(1, '#008080');
-      ctx.fillStyle = gradient;
+      // Background - starry night gradient
+      const bgGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+      bgGradient.addColorStop(0, '#1a1a3e');
+      bgGradient.addColorStop(0.5, '#2d1b4e');
+      bgGradient.addColorStop(1, '#1a1a3e');
+      ctx.fillStyle = bgGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.strokeStyle = '#D4AF37';
-      ctx.lineWidth = 10;
-      ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
-
-      ctx.strokeStyle = 'rgba(212, 175, 55, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.strokeRect(35, 35, canvas.width - 70, canvas.height - 70);
-
-      ctx.fillStyle = '#D4AF37';
-      ctx.font = 'bold 48px Arial';
-      ctx.textAlign = 'center';
-      ctx.fillText('ঈদ মুবারক', canvas.width / 2, 100);
-
-      ctx.font = '60px Arial';
-      ctx.fillText('🌙✨', canvas.width / 2, 170);
-
+      // Draw stars
       ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 36px Arial';
-      ctx.fillText(currentUserName + ' কে', canvas.width / 2, 250);
+      for (let i = 0; i < 150; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const radius = Math.random() * 2;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
 
-      ctx.font = '28px Arial';
-      ctx.fillText('সালামীর শুভেচ্ছা', canvas.width / 2, 300);
+      // Draw larger glowing stars
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = '#ffffff';
+      for (let i = 0; i < 8; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * (canvas.height * 0.4);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.shadowBlur = 0;
 
+      // Draw crescent moon
+      ctx.fillStyle = '#f5f5dc';
+      ctx.shadowBlur = 30;
+      ctx.shadowColor = '#f5f5dc';
+      ctx.beginPath();
+      ctx.arc(850, 150, 80, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1a1a3e';
+      ctx.beginPath();
+      ctx.arc(820, 140, 75, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      // Draw mosque silhouette at bottom
+      ctx.fillStyle = '#000000';
+      const skylineY = canvas.height - 250;
+      
+      // Simple mosque shapes
+      // Left dome
+      ctx.beginPath();
+      ctx.arc(150, skylineY, 50, Math.PI, 0);
+      ctx.fill();
+      ctx.fillRect(130, skylineY, 40, 150);
+      
+      // Center large dome
+      ctx.beginPath();
+      ctx.arc(500, skylineY - 50, 80, Math.PI, 0);
+      ctx.fill();
+      ctx.fillRect(460, skylineY - 50, 80, 200);
+      
+      // Right dome
+      ctx.beginPath();
+      ctx.arc(850, skylineY, 50, Math.PI, 0);
+      ctx.fill();
+      ctx.fillRect(830, skylineY, 40, 150);
+      
+      // Minarets
+      ctx.fillRect(100, skylineY - 80, 15, 230);
+      ctx.fillRect(300, skylineY - 100, 15, 250);
+      ctx.fillRect(700, skylineY - 100, 15, 250);
+      ctx.fillRect(885, skylineY - 80, 15, 230);
+      
+      // Minaret tops
+      ctx.beginPath();
+      ctx.arc(107, skylineY - 80, 10, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(307, skylineY - 100, 10, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(707, skylineY - 100, 10, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(892, skylineY - 80, 10, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Draw floating crescent moons and stars decorations
+      ctx.fillStyle = 'rgba(245, 245, 220, 0.4)';
+      // Left crescent
+      ctx.beginPath();
+      ctx.arc(100, 180, 25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1a1a3e';
+      ctx.beginPath();
+      ctx.arc(90, 175, 23, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Right crescent
+      ctx.fillStyle = 'rgba(245, 245, 220, 0.4)';
+      ctx.beginPath();
+      ctx.arc(900, 180, 25, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#1a1a3e';
+      ctx.beginPath();
+      ctx.arc(890, 175, 23, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sparkle decorations
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+      const sparkles = [[200, 300], [800, 350], [150, 450], [850, 500]];
+      sparkles.forEach(([x, y]) => {
+        ctx.fillRect(x - 1, y - 15, 2, 30);
+        ctx.fillRect(x - 15, y - 1, 30, 2);
+        ctx.fillRect(x - 10, y - 10, 2, 20);
+        ctx.fillRect(x - 10, y - 1, 20, 2);
+      });
+
+      // Title - Eid Mubarak
+      ctx.fillStyle = '#D4AF37';
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = '#D4AF37';
+      ctx.font = 'bold 56px Arial';
+      ctx.textAlign = 'center';
+      ctx.fillText('ঈদ মুবারক', canvas.width / 2, 120);
+      ctx.shadowBlur = 0;
+
+      ctx.font = '50px Arial';
+      ctx.fillText('🌙✨', canvas.width / 2, 180);
+
+      // Recipient name
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 42px Arial';
+      ctx.fillText(currentUserName + ' কে', canvas.width / 2, 260);
+
+      ctx.font = '32px Arial';
+      ctx.fillText('সালামীর শুভেচ্ছা', canvas.width / 2, 310);
+
+      // Bill image
       if (currentBillImage) {
         try {
           const img = new Image();
@@ -207,50 +318,61 @@
             img.onerror = reject;
             img.src = currentBillImage;
           });
-          const imgWidth = 400;
+          const imgWidth = 500;
           const imgHeight = (img.height / img.width) * imgWidth;
-          ctx.drawImage(img, (canvas.width - imgWidth) / 2, 350, imgWidth, imgHeight);
+          
+          // White card background for bill
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+          ctx.fillRect((canvas.width - imgWidth - 40) / 2, 340, imgWidth + 40, imgHeight + 40);
+          ctx.strokeStyle = '#D4AF37';
+          ctx.lineWidth = 3;
+          ctx.strokeRect((canvas.width - imgWidth - 40) / 2, 340, imgWidth + 40, imgHeight + 40);
+          
+          ctx.drawImage(img, (canvas.width - imgWidth) / 2, 360, imgWidth, imgHeight);
         } catch (e) {
           console.error('Error loading bill image:', e);
         }
       }
 
-      ctx.fillStyle = 'rgba(212, 175, 55, 0.3)';
-      ctx.fillRect(60, 650, canvas.width - 120, 400);
+      // Duwa section with semi-transparent card
+      const duwaY = 720;
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+      ctx.fillRect(80, duwaY, canvas.width - 160, 350);
       ctx.strokeStyle = '#D4AF37';
       ctx.lineWidth = 3;
-      ctx.strokeRect(60, 650, canvas.width - 120, 400);
+      ctx.strokeRect(80, duwaY, canvas.width - 160, 350);
 
       ctx.fillStyle = '#D4AF37';
-      ctx.font = 'bold 28px Arial';
-      ctx.fillText('দোয়া', canvas.width / 2, 700);
+      ctx.font = 'bold 32px Arial';
+      ctx.fillText('🤲 দোয়া', canvas.width / 2, duwaY + 50);
 
       if (currentDuwa) {
         ctx.fillStyle = '#ffffff';
-        ctx.font = '24px Arial';
+        ctx.font = '26px Arial';
         ctx.textAlign = 'center';
-        const arabicLines = wrapText(ctx, currentDuwa.arabic, canvas.width - 160);
-        let yPos = 750;
+        const arabicLines = wrapText(ctx, currentDuwa.arabic, canvas.width - 200);
+        let yPos = duwaY + 110;
         arabicLines.forEach(line => {
+          ctx.fillText(line, canvas.width / 2, yPos);
+          yPos += 38;
+        });
+
+        ctx.font = '22px Arial';
+        yPos += 25;
+        const banglaLines = wrapText(ctx, currentDuwa.bangla, canvas.width - 200);
+        banglaLines.forEach(line => {
           ctx.fillText(line, canvas.width / 2, yPos);
           yPos += 35;
         });
-
-        ctx.font = '20px Arial';
-        yPos += 20;
-        const banglaLines = wrapText(ctx, currentDuwa.bangla, canvas.width - 160);
-        banglaLines.forEach(line => {
-          ctx.fillText(line, canvas.width / 2, yPos);
-          yPos += 30;
-        });
       }
 
+      // Footer
       ctx.fillStyle = '#D4AF37';
+      ctx.font = 'bold 22px Arial';
+      ctx.fillText('From: Aunik & Mahdi', canvas.width / 2, canvas.height - 90);
       ctx.font = '18px Arial';
-      ctx.fillText('From: Aunik & Mahdi', canvas.width / 2, canvas.height - 80);
-      ctx.font = '16px Arial';
       ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-      ctx.fillText('Generated on ' + new Date().toLocaleDateString('bn-BD'), canvas.width / 2, canvas.height - 50);
+      ctx.fillText('Generated on ' + new Date().toLocaleDateString('bn-BD'), canvas.width / 2, canvas.height - 55);
 
       return canvas;
     }

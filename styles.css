@@ -1,19 +1,19 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  background: #006A4E url('https://i.postimg.cc/yYWbGT64/bg_salami_nin.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed;
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  position: relative;
-  overflow-x: hidden;
-  padding: 20px 0;
-}
+    body {
+      background: #006A4E url('https://i.postimg.cc/yYWbGT64/bg_salami_nin.png') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+      padding: 20px 0;
+    }
 
     /* Mobile background override */
     @media (max-width: 768px) {
