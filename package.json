@@ -1,6 +1,6 @@
 {
   "name": "salami-from-aunik",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Virtual Salami gift app with secure Supabase integration",
   "main": "index.html",
   "scripts": {
